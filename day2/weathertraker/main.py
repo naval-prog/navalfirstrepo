@@ -1,6 +1,6 @@
-from weathertraker.weather_service import fect_weather
-from weathertraker.models import WeatherMOdel
-from weathertraker.report import save_report
+from weather_service import fect_weather
+from models import WeatherMOdel
+from report import save_report
 
 def main():
   city=input("enter the city")
