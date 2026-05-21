@@ -1,0 +1,21 @@
+.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 220px;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px gray;
+}
+
+.card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
