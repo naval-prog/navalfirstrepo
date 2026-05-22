@@ -1,0 +1,13 @@
+props in react :
+Props (short for properties) are used to pass data from a parent component to a child component.
+They make components reusable because different values can be sent to the same component.
+Props are read-only, which means the child component cannot directly modify them. 
+They help maintain one-way data flow in React. A component receives props as an object parameter.
+For example, a ProfileCard component can receive a name prop and display it.
+
+ex:<ProfileCard name="Naval" />
+
+state in react :
+State is used to store data that belongs to a component and may change over time.
+ Unlike props, state can be updated using a state setter function. When state changes, React automatically re-renders the component UI. State is commonly used for user interactions such as counters, forms, and toggles. The useState hook is used to create state in functional components. For example, a counter component can store and update a count value using state.
+ const [count, setCount] = useState(0);
