@@ -1,0 +1,9 @@
+(a) Maximum line length : PEP 8 recommends 79 characters per line (72 for comments/docstrings).
+
+(b) Naming convention for functions and variables : Use snake_case (lowercase with underscores).
+
+(c) Naming convention for classes : Use PascalCase / CapWords style.
+
+(d) Indentation : Use 4 spaces per indentation level (not tabs).
+
+(e) Blank lines between top-level function definitions : Use 2 blank lines between top-level functions and classes.

@@ -1,0 +1,17 @@
+ 
+  function ProfileCard(props) {
+    return (
+      <div class="card">
+        <img src={props.avatar} />
+        <h2>{props.name}</h2>
+        <p>Role: {props.role}<p>
+        <button onclick={props.onFollow}>Follow</button>
+      </div>
+    )
+  }
+
+  bugs:
+  1 class=className
+  2 img tag should inclosed alt to improve accesibilty and avoid react warnings
+  3:p tag =<p> </p>
+  4:onclick=onClick

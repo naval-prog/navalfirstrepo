@@ -1,0 +1,11 @@
+# 1. Create the Vite React project (JavaScript)
+npm create vite@latest intern-app -- --template react
+
+# 2. Move into the project folder
+cd intern-app
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev

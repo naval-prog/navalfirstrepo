@@ -1,0 +1,23 @@
+Why you should NEVER hard-code an API key in Python
+If you push code to GitHub, the key becomes public
+Anyone can steal and misuse it (costing money or breaching accounts)
+You must change code every time the key is rotated
+Not secure for teamwork or production apps
+
+Recommended approach: .env file + python-dotenv
+
+steps :
+ 
+s1:
+Create a .env file
+
+s2:
+pip install python-dotenv
+
+s3:
+from dotenv import load_dotenv
+load_dotenv()
+
+s4:
+import os
+api_key = os.getenv("OPENAI_API_KEY")

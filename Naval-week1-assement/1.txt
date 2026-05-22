@@ -1,0 +1,57 @@
+list
+.it is mutabale colletion and ordered  
+.ordered:items keep theri position 
+.mutuable :items can changed after creation 
+.allow duplicate values
+.write in square [] brackets
+nums=[1,2,3]
+
+when to use 
+.order mater
+.data may change 
+.duplicate are allowed
+
+Tupple
+.it is immutable colletion and ordered
+.immutable:cannot cahnegd
+.allow duplicates 
+.write in paranthesies
+.give type error when want to modify 
+
+when to use
+.data should stay constant 
+.order matter
+.you want read only-data
+location = (28.61, 77.20)
+
+Set:
+.a set is an unordered collection of unique items
+.unordered :no fix order.
+.no duplicate are allow
+.write in curly braces {}
+
+when to use 
+.Fast searching is needed
+.Order does not matter
+.Duplicates must be removed
+numbers = {1, 2, 3, 4}
+
+Dictionary(Dict):
+.a dictionary stores key-value pairs.
+.mutable
+.keys are unique
+.fast lookup using keys
+.written using curly braces {} with key:value.
+
+When to use a dictionary
+
+data has labels
+fast lookup is needed
+information is naturally key-value
+
+example:
+student = {
+    "roll_no": 101,
+    "name": "Aman",
+    "marks": 85
+}

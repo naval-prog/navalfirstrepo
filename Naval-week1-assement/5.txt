@@ -1,0 +1,13 @@
+create a project folder called expense-tracker
+mkdir expense-tracker
+cd expense-tracker
+
+create and activate a virtual environment inside it
+python3 -m venv venv
+source venv/bin/activate
+
+install the requests and pydantic packages
+pip install requests pydantic
+
+freeze the installed dependencies into requirements.txt.
+pip freeze > requirements.txt
