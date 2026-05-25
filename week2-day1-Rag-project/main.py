@@ -1,36 +1,76 @@
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
-from langchain_community.document_loaders import PyPDFLoader
-# from langchain_community.document_loaders import WebBaseLoader --load from website 
-# from langchain_community.document_loaders import pdfLoader
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
 
 load_dotenv()
 
-data=PyPDFLoader("documentLoader/ai.pdf")
-docs =data.load()
-
-splitter=RecursiveCharacterTextSplitter(
-  chunk_size=100,
-  chunk_overlap=12
+embedding_model = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-chunks=splitter.split_documents(docs)
-template=ChatPromptTemplate.from_messages(
-  [
-    ("system","you are a AI that sumarize the text"),
-    ("human","{data}")
-  ]
+vectorstore = Chroma(
+    persist_directory="chroma_db",
+    embedding_function=embedding_model
 )
 
-model = init_chat_model(
+retriever = vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={
+        "k": 4,
+        "fetch_k": 10,
+        "lambda_mult": 0.5
+    }
+)
+
+llm = init_chat_model(
     "llama-3.3-70b-versatile",
-    model_provider="groq",
-     temperature=0.7,
-     max_tokens=20
+    model_provider="groq"
 )
-prompt=template.format_messages(data=docs)
-response = model.invoke(prompt)
-print(response.content)
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """
+You are a helpful AI assistant.
+Use only the provided context to answer the question.
+If answer is not present in context, say you do not know.
+"""
+        ),
+        (
+            "human",
+            """
+Context:
+{context}
+
+Question:
+{question}
+"""
+        )
+    ]
+)
+
+print("RAG created")
+
+while True:
+    query = input("You: ")
+
+    if query == "0":
+        break
+
+    docs = retriever.invoke(query)
+
+    context = "\n\n".join(
+        [doc.page_content for doc in docs]
+    )
+
+    final_prompt = prompt.invoke({
+        "context": context,
+        "question": query
+    })
+
+    response = llm.invoke(final_prompt)
+
+    print(f"\nAI: {response.content}")
