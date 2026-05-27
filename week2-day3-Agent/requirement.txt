@@ -1,0 +1,14 @@
+groq
+langchain-core
+langchain-groq
+langgraph
+tavily-python
+beautifulsoup4
+requests
+lxml
+fastapi
+uvicorn
+python-dotenv
+pydantic
+httpx
+tiktoken
