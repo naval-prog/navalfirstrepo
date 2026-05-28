@@ -1,0 +1,27 @@
+[project]
+name = "agentic_ter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp>=3.3.1",
+]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "build>=1.5.0",
+    "setuptools>=82.0.1",
+    "wheel>=0.47.0",
+]
+
+[project.scripts]
+agentic_terminal = "agentic_ter.main:main"

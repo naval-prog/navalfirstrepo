@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/agentic_ter/__init__.py
+src/agentic_ter/main.py
+src/agentic_ter/tools.py
+src/agentic_ter.egg-info/PKG-INFO
+src/agentic_ter.egg-info/SOURCES.txt
+src/agentic_ter.egg-info/dependency_links.txt
+src/agentic_ter.egg-info/entry_points.txt
+src/agentic_ter.egg-info/requires.txt
+src/agentic_ter.egg-info/top_level.txt
