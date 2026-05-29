@@ -1,0 +1,30 @@
+Two simple reasons:
+
+1. Reuse tools easily
+
+With normal function calling, tools are usually connected to one app only.
+
+With MCP:
+
+Build one tool, use it in many agents or apps.
+
+Example:
+
+One MCP search tool
+→ used by chatbot
+→ used by RAG agent
+→ used by another AI app
+2. Keep code cleaner
+
+Function calling can mix AI code and tool code together.
+
+MCP keeps them separate:
+
+Agent → MCP → Tool
+
+So changing a tool or API is easier without changing the whole agent.
+
+In one line:
+
+Function calling = tool use inside app
+MCP = shared, cleaner, reusable tool system.
