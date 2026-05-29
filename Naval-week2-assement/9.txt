@@ -1,0 +1,18 @@
+(a) Loading the PDF:
+PyPDFLoader (from langchain_community.document_loaders)
+
+(b) Splitting into chunks:
+RecursiveCharacterTextSplitter (from langchain.text_splitter)
+
+(c) Embedding the chunks:
+HuggingFaceEmbeddings (from langchain_community.embeddings)
+(or OpenAIEmbeddings from langchain_openai)
+
+(d) Storing them in a vector store:
+Chroma (from langchain_community.vectorstores)
+
+(e) Retrieving relevant chunks at query time:
+VectorStoreRetriever (usually created using vectorstore.as_retriever())
+
+(f) Combining retrieved context with question + prompt + model + parser:
+ChatPromptTemplate + ChatGroq/ChatOpenAI + StrOutputParser connected using LCEL (|).

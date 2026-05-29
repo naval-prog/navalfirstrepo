@@ -1,0 +1,15 @@
+(1) State:
+State is the shared data object that stores information used and updated throughout the graph, such as user input, retrieved documents, or intermediate results.
+
+(2) Nodes:
+Nodes are individual processing steps or functions in the graph that perform tasks like calling an LLM, retrieving data, or using tools.
+
+(3) Edges:
+Edges are connections between nodes that define how execution moves from one node to another.
+
+(4) Conditional Edges:
+Conditional edges are decision-based connections that choose the next node depending on the current state or output of a node.
+
+How state flows through the graph
+
+In LangGraph, the state flows from node to node as shared memory. Each node reads the current state, performs its task, and updates or adds new information to the state before passing it forward. Conditional edges inspect this updated state to decide which node should run next. This allows the graph to support branching, looping, and dynamic execution instead of following a fixed linear path.

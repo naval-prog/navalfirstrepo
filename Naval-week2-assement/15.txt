@@ -1,0 +1,5 @@
+MCP Tool:
+An MCP tool performs an action or executes a function when called; for example, a weather search tool that fetches the current temperature for a city.
+
+MCP Resource:
+An MCP resource provides readable data or information without performing an action; for example, a company policy PDF or database record that the AI can read and use as context.

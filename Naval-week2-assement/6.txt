@@ -1,0 +1,5 @@
+LangChain Expression Language (LCEL) is a declarative way to build AI pipelines by connecting components like prompts, LLMs, retrievers, and parsers into a chain. The pipe (|) operator passes the output of one component directly as the input to the next, creating a readable flow. For example:
+
+prompt | llm | parser
+
+LCEL is preferred over manually chaining .invoke() calls because it makes pipelines cleaner, easier to read, reusable, and easier to debug or modify. It also provides built-in support for features like streaming, parallel execution, async operations, and tracing, which become harder to manage with manual .invoke() wiring.

@@ -1,0 +1,20 @@
+With chunk_size = 2000 and chunk_overlap = 0 for a 200-page policy manual, these three retrieval problems are likely:
+
+1. Chunks become too large and contain mixed topics
+
+A 2000-token chunk may include several policies or sections together, making retrieval less precise because the embedding represents many ideas at once instead of one focused topic.
+
+2. Important information may be missed at boundaries
+
+With 0 overlap, if an answer spans the end of one chunk and the beginning of another, retrieval may miss part of the context or return incomplete information.
+
+3. Lower relevance in top-k retrieval
+
+Large chunks often cause the vector search to retrieve broad, partially relevant sections instead of the exact 1–2 paragraph answer the user needs, reducing answer quality.
+
+Better values
+chunk_size = 400–800
+chunk_overlap = 50–100
+
+Justification:
+Since most answers fit within 1–2 paragraphs, smaller chunks with some overlap preserve context while keeping each chunk focused, leading to more accurate and relevant retrieval.

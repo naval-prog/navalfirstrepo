@@ -1,0 +1,93 @@
+1. State Shape
+State = {
+    "messages": list,
+    "tool_result": str,
+    "final_answer": str,
+    "tool_calls": int
+}
+
+2. Nodes
+
+(a) Agent Node
+
+The agent decides whether it already knows the answer or needs a tool.
+
+Pseudo:
+
+Read state.messages
+
+IF enough information:
+    create final_answer
+ELSE:
+    request search tool
+
+(b) Tool Node
+
+This node runs the search tool and stores the result.
+
+Pseudo:
+
+Run search(query)
+Save result in state.tool_result
+Increase tool_calls
+Return updated state
+
+(c) End Node
+
+This node returns the final answer and stops execution.
+
+Pseudo:
+
+Return state.final_answer
+
+
+3. Conditional Edge (Call Tool vs Answer)
+
+The conditional edge checks the agent's decision.
+
+Pseudo:
+
+IF agent requests tool:
+    go to Tool node
+ELSE:
+    go to End node
+
+Graph flow:
+
+START
+  ↓
+Agent
+  ├── "call_tool" → Tool
+  └── "answer" → End
+
+After tool execution:
+
+Tool → Agent
+
+This creates a loop where the agent can use tool results and reconsider.
+
+4. How the Loop Terminates
+
+The graph avoids running forever using stopping rules.
+
+Example:
+
+IF final_answer exists:
+    go to End
+
+OR
+
+IF tool_calls >= max_limit (e.g., 3):
+    stop and return best answer
+
+Complete sketch:
+
+START
+   ↓
+ Agent
+ ├── answer → END
+ └── call_tool → Tool
+                    ↓
+                 Agent
+                    ↓
+              (repeat if needed)

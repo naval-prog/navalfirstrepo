@@ -1,0 +1,14 @@
+(a) Embedding:
+An embedding is a numerical vector representation of text, images, or data that captures its meaning and relationships.
+
+(b) Vector similarity (and the metric most commonly used):
+Vector similarity measures how semantically similar two embeddings are, most commonly using cosine similarity.
+
+(c) Chunk size:
+Chunk size is the amount of text split into one piece before creating embeddings and storing it for retrieval.
+
+(d) Chunk overlap:
+Chunk overlap is the repeated portion of text shared between consecutive chunks to preserve context across boundaries.
+
+(e) Top-k retrieval:
+Top-k retrieval is the process of returning the k most similar or relevant chunks from a vector database for a query.

@@ -1,0 +1,17 @@
+This failure mode is called hallucination or ungrounded generation—the model generates facts that are not supported by the retrieved documents.
+
+Three ways to reduce it:
+
+1. Improve Retrieval Quality
+
+Use better chunking, embeddings, or increase top-k retrieval so the model receives more relevant context from the knowledge base.
+
+2. Strengthen the Prompt
+
+Use instructions like:
+"Answer only using the provided context. If the answer is not in the documents, say 'I don't know' or 'Not found in the source.'"
+This discourages the model from inventing information.
+
+3. Add Evaluation and Grounding Checks
+
+Evaluate answers by checking whether claims are supported by retrieved documents, using methods like citation verification, faithfulness scoring, or human review to detect unsupported statements.
